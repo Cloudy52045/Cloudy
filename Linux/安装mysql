@@ -1,0 +1,67 @@
+1 登录linux服务器，卸载默认的mariadb数据库 rpm -qa | grep maria* yum -y remove mari* rm -rf /var/lib/mysql/*
+
+2 进入到目录 /usr/local/ 中： cd /usr/local/
+
+3 创建目录 /usr/local/tools，如果有则忽略： mkdir -p tools
+
+4 关闭centos防火墙 systemctl stop firewalld.service systemctl disable firewalld.service
+
+5 进入到目录 /usr/local/tools 中： cd tools/
+
+6 查看系统中是否已安装 MySQL 服务： rpm -qa | grep mysql 或 yum list installed | grep mysql
+
+7 如果已安装则删除 MySQL 及其依赖的包： rpm -qa | grep -i mysql yum -y remove mysql-community-* rm -rf /var/lib/mysql/*
+
+8 下载 wget http://mirrors.sohu.com/mysql/MySQL-5.7/mysql-5.7.17-1.el7.x86_64.rpm-bundle.tar
+
+9 创建mysql组和用户 groupadd mysql useradd -g mysql mysql usermod -s /bin/false mysql
+
+10 解压安装： tar -xf mysql-5.7.17-1.el7.x86_64.rpm-bundle.tar rpm -ivh mysql-community-common-5.7.17-1.el7.x86_64.rpm rpm -ivh mysql-community-libs-5.7.17-1.el7.x86_64.rpm rpm -ivh mysql-community-client-5.7.17-1.el7.x86_64.rpm rpm -ivh mysql-community-server-5.7.17-1.el7.x86_64.rpm
+
+解压文件的顺序 common——>libs——>client——>server
+
+service mysqld start ps -ef|grep mysql 能正常启动就表示成功
+
+初始化mysql service mysqld stop /usr/sbin/mysqld --initialize --user=mysql #执行报错表示不需要执行
+
+11 启动mysql vi /etc/my.cnf 在 [mysqld] 下面加入： skip-grant-tables=1 ## 跳过初始化密码验证 systemctl restart mysqld
+
+12 登录到 MySQL 服务端并更新用户 root 的密码： mysql -u root -p ##提示输入密码后直接回车 mysql>use mysql mysql>update user set authentication_string=PASSWORD('Root@123') where User='root'; mysql>update user set host = '%' where user = 'root'; --修改root用户可远程访问 mysql>quit
+
+重启mysql vi /etc/my.cnf 注释掉 #skip-grant-tables = 1 systemctl restart mysqld
+
+mysql -u root -p 后输入密码 mysql>set password = password('Root@123');
+
+13 问题或知识： 
+
+//第一次登陆之后，使用use mysql 的时候，可能会提示 You must reset your password using ALTER USER statement before executing this statement. 就执行如下命令，再次登陆就正常了 mysql>set password = password('root123');
+
+//设置 MySQL 的字符集为 UTF-8 打开 /etc 目录下的 my.cnf 文件（此文件是 MySQL 的主配置文件）： /etc/my.cnf 在 [mysqld] 前添加如下代码： [client] default-character-set=utf8 在 [mysqld] 后添加如下代码： character_set_server=utf8 再次查看字符集： mysql> show variables like '%character%';
+
+// /var/lib/mysql 是存放数据库文件的目录
+
+// /var/log 目录下的 mysqld.log 文件记录 MySQL 的日志
+
+//忘记密码时，可用如下方法重置：
+
+systemctl stop mysqld
+
+mysqld_safe --user=root --skip-grant-tables --skip-networking &
+
+mysql -u root
+
+mysql> use mysql; mysql> update user set password=password("new_password") where user="root"; // 5.7: authentication_string=PASSWORD('root123') mysql> flush privileges;
+
+//备份数据库 mysqldump -h 118.31.51.198 -uadmin -pxxxx --opt test > test.dump
+
+//还原数据库 mysql -uroot -proot123 test < test.dump
+
+//跨主机直接备份 mysqldump --host=118.31.51.198 -uadmin -pxxxx --opt test| mysql -C test
+
+//添加用户 注释掉 #skip-grant-tables = 1 ，不然报错 systemctl restart mysqld mysql -u root -p 后输入密码 set password = password('Root@123'); CREATE USER "test"@"%" IDENTIFIED BY "Test@123"; CREATE USER "test"@"localhost" IDENTIFIED BY "Test@123"; quit mysql -utest -pTest@123	#测试是否能登录 quit
+
+//创建数据库并授权给用户 mysql -u root -p create database testDB default charset utf8 collate utf8_general_ci; grant all privileges on testDB.* to "test"@"%" identified by "Test@123"; grant all privileges on testDB.* to "test"@"localhost" identified by "Test@123"; flush privileges;
+
+删除用户和数据库 mysql -u root -p Delete FROM mysql.user Where User="test"; flush privileges; drop database testDB;
+
+修改指定用户密码 mysql -u root -p update mysql.user set authentication_string=password(“新密码”) where User=”test”; flush privileges;
