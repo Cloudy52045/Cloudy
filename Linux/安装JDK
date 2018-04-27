@@ -1,0 +1,22 @@
+环境：centos7
+
+#查看内置的JDK rpm -qa | grep jdk #卸载内置的JDK
+yum remove java-1.6.0-openjdk
+yum remove java-1.7.0-openjdk
+
+下载 jdk-8u131-linux-x64.rpm rpm -ivh jdk-8u131-linux-x64.rpm java -version
+
+修改配置
+vi /etc/profile 在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下添加
+export JAVA_HOME=/usr/java/jdk1.8.0_131
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+启动 source /etc/profile
+
+检查版本 java -version
+
+第二种方式： 官方下载jdk_1.8.0.tar.gz
+
+创建 /usr/java 文件夹
+解压 tar -zxvf jdk_1.8.0.tar.gz
