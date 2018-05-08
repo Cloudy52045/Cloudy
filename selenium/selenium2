@@ -1,0 +1,1550 @@
+ 
+ 
+RobotFramework-Selenium2Library 
+中文版 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Library Version：V1.6 
+翻译：代兵，张哲 
+校对：张哲 
+日期：2015-04-28 
+ 
+ 
+ 
+ 
+第 1页 
+目录 
+介绍................................................................................................................................. 6 
+测试前提:.................................................................................................................. 6 
+元素定位:.................................................................................................................. 6 
+超时等待:.................................................................................................................. 7 
+引入 Selenium2Library类库: ....................................................................................... 7 
+常用关键字列表 ............................................................................................................... 8 
+验证页面是否包含相应结果....................................................................................... 8 
+Page ................................................................................................................... 8 
+Location & Title ................................................................................................... 8 
+Text .................................................................................................................... 8 
+Element .............................................................................................................. 9 
+验证页面是否包含相应结果....................................................................................... 9 
+List ..................................................................................................................... 9 
+Checkbox ............................................................................................................ 9 
+Radio Button ....................................................................................................... 9 
+验证页面是否包含相应结果..................................................................................... 10 
+Table ................................................................................................................ 10 
+Xpath ............................................................................................................... 10 
+对于页面 AJAX可以使用如下等待页面的关键词： ................................................... 10 
+和其他界面元素交互的关键词：.............................................................................. 11 
+Element ............................................................................................................ 11 
+List ................................................................................................................... 11 
+Checkbox .......................................................................................................... 11 
+Radio Button ..................................................................................................... 11 
+Form ................................................................................................................ 11 
+获取页面信息相关关键词：..................................................................................... 12 
+Page ................................................................................................................. 12 
+Element ............................................................................................................ 12 
+Link .................................................................................................................. 12 
+Table ................................................................................................................ 12 
+List ................................................................................................................... 12 
+切换窗口相关关键词：............................................................................................ 13 
+关键字 ........................................................................................................................... 13 
+关键字： Add Cookies ............................................................................................. 13 
+关键字： Alert Should Be Present ............................................................................. 13 
+关键字： Assign Id To Element.................................................................................. 14 
+关键字： Capture Page Screenshot ........................................................................... 14 
+关键字： Checkbox Should Be Selected ..................................................................... 14 
+关键字： Checkbox Should Not Be Selected ............................................................... 15 
+关键字： Choose Cancel On Next Confirmation .......................................................... 15 
+关键字： Choose File............................................................................................... 15 
+第 2页 
+关键字： Click Button .............................................................................................. 16 
+关键字： Click Element............................................................................................ 16 
+关键字： Click Element At Coordinates...................................................................... 16 
+关键字： Click Image ............................................................................................... 17 
+关键字： Click Link .................................................................................................. 17 
+关键字： Close All Browsers ..................................................................................... 17 
+关键字： Close Browsers ......................................................................................... 17 
+关键字： Close Window .......................................................................................... 18 
+关键字： Confirm Action ......................................................................................... 18 
+关键字： Current Frame Contains ............................................................................. 18 
+关键字： Current Frame Should Not Contain.............................................................. 19 
+关键字： Create Webdriver...................................................................................... 19 
+关键字： Delete All Cookies ..................................................................................... 20 
+关键字： Delete Cookies.......................................................................................... 20 
+关键字： Double Click Element................................................................................. 21 
+关键字： Drag And Drop .......................................................................................... 21 
+关键字： Drag And Drop By Offset ............................................................................ 21 
+关键字： Element Should Be Disabled ....................................................................... 22 
+关键字： Element Should (Not) Be Enable ................................................................. 22 
+关键字： Element Should Be Visible .......................................................................... 22 
+关键字： Element Should Contain............................................................................. 23 
+关键字： Element Text Should Be ............................................................................. 23 
+关键字： Execute Async Javascript ............................................................................ 23 
+关键字： Execute Javascript ..................................................................................... 24 
+关键字： Focus....................................................................................................... 24 
+关键字： Frame Should Contain ............................................................................... 24 
+关键字： Get Alert Message..................................................................................... 25 
+关键字： Get All Links ............................................................................................. 25 
+关键字： Get Cookie Value ...................................................................................... 25 
+关键字： Get Element Attribute ............................................................................... 26 
+关键字： Get Horizontal Position .............................................................................. 26 
+关键字： Get List Items ........................................................................................... 26 
+关键字： Get location ............................................................................................. 26 
+关键字： Get Matching Xpath Count ......................................................................... 27 
+关键字： Get Selected List Lable ............................................................................... 27 
+关键字： Get Selected List Value .............................................................................. 27 
+关键字： Get Selected List Values ............................................................................. 28 
+关键字： Get Selenium Implicit Wait ......................................................................... 28 
+关键字： Get Selenium Speed .................................................................................. 28 
+关键字： Get Selenium Timeout ............................................................................... 28 
+关键字： Get Source ............................................................................................... 29 
+关键字： Get Table Cell ........................................................................................... 29 
+关键字： Get Text ................................................................................................... 29 
+关键字： Get Title................................................................................................... 30 
+第 3页 
+关键字： Get Value ................................................................................................. 30 
+关键字： Get Vertical Position .................................................................................. 30 
+关键字： Get Window Names .................................................................................. 30 
+关键字： Get Window Size....................................................................................... 31 
+关键字： Get Window Title ...................................................................................... 31 
+关键字： Go Back ................................................................................................... 31 
+关键字： Go To ...................................................................................................... 32 
+关键字： Input Password ......................................................................................... 32 
+关键字： Input Text ................................................................................................ 32 
+关键字： List Selection Should Be ............................................................................. 32 
+关键字： List Should Hava No Selections ................................................................... 33 
+关键字： Location Should Be.................................................................................... 33 
+关键字： Location Should Contain ............................................................................ 33 
+关键字： Log Location ............................................................................................. 33 
+关键字： Locator Should Match X Times .................................................................... 34 
+关键字： Log Location ............................................................................................. 34 
+关键字： Log Source ............................................................................................... 34 
+关键字： Log Title ................................................................................................... 35 
+关键字： Maximize Browser Window ........................................................................ 35 
+关键字： Mouse Down ............................................................................................ 35 
+关键字： Mouse Down On Image ............................................................................. 35 
+关键字： Mouse Down On Link ................................................................................ 36 
+关键字： Mouse Out ............................................................................................... 36 
+关键字： Mouse Over ............................................................................................. 36 
+关键字： Mouse Up ................................................................................................ 37 
+关键字： Open Browser........................................................................................... 37 
+关键字： Open Context Menu .................................................................................. 38 
+关键字： Page Should (Not) Contain ......................................................................... 38 
+关键字： Page Should (Not) Contain Button ............................................................... 39 
+关键字： Page Should (Not) Contain Checkbox ........................................................... 39 
+关键字： Page Should (Not) Contain Element ............................................................. 40 
+关键字： Page Should (Not) Contain Image ................................................................ 40 
+关键字： Page Should (Not) Contain List .................................................................... 40 
+关键字： Page Should (Not) Contain Radio Button ...................................................... 41 
+关键字： Page Should (Not) Contain TextField............................................................ 41 
+关键字： Press Key.................................................................................................. 42 
+关键字： Press Key Native........................................................................................ 44 
+关键字： Press Key Native Radio Button Should (Not) Be Set to .................................... 45 
+关键字： Register Keyword To Run On Failure............................................................. 45 
+关键字： Reload Page.............................................................................................. 46 
+关键字： Select All From List .................................................................................... 46 
+关键字： Select Checkbox ........................................................................................ 46 
+关键字： Select All Frame ........................................................................................ 46 
+关键字： Select From List......................................................................................... 47 
+第 4页 
+关键字： Select From List List By Index ...................................................................... 47 
+关键字： Select From List List By Label ...................................................................... 47 
+关键字： Select From List List By Value ...................................................................... 48 
+关键字： Select Radio Button ................................................................................... 48 
+关键字： Select Window ......................................................................................... 49 
+关键字： Set browser implicit wait............................................................................ 49 
+关键字： Set Selenium implicit wait .......................................................................... 50 
+关键字： Set Selenium speed ................................................................................... 50 
+关键字： Set Selenium Timeout ............................................................................... 51 
+关键字： Set Window Size ....................................................................................... 51 
+关键字： Simulate .................................................................................................. 51 
+关键字： Switch Browser ......................................................................................... 52 
+关键字： Table cell should contain ............................................................................ 52 
+关键字： Table Column should contain ...................................................................... 53 
+关键字： Table Footer should contain........................................................................ 53 
+关键字： Table Header should contain....................................................................... 54 
+关键字： Table Row should contain........................................................................... 54 
+关键字： Table should Contain ................................................................................. 55 
+关键字： Textarea Should Contain............................................................................. 55 
+关键字： Textarea value should be ............................................................................ 55 
+关键字： Textfield should contain ............................................................................. 56 
+关键字： Textfield Value Should be ........................................................................... 56 
+关键字： Title should be.......................................................................................... 56 
+关键字： Unselect checkbox..................................................................................... 57 
+关键字： Unselect Frame ......................................................................................... 57 
+关键字： Unselect From List ..................................................................................... 57 
+关键字： Unselect From List By Index ........................................................................ 58 
+关键字： Unselect From List By Label ........................................................................ 58 
+关键字： Unselect From List By Value ........................................................................ 58 
+关键字： Wait for condition ..................................................................................... 59 
+关键字： Wait Until Element Is Visible....................................................................... 59 
+关键字： Wait Until Page Contains ............................................................................ 60 
+关键字： Wait Until Page Contains Element ............................................................... 60 
+关键字： Xpath Should Match X Times ...................................................................... 61 
+ 
+ 
+ 
+ 
+第 5页 
+介绍 
+Selenium2Library是 RobotFramework针对 web测试所定义的一套类库文件。 
+它是使用 selenium2，即 webdriver来模拟操作 web浏览器的。 
+你可以访问 http://seleniumhq.org/docs/03_webdriver.html 来获取更多 selenium2和 webdriver
+的信息。 
+Selenium2Library是在真实的浏览器实例中执行测试的。 
+ 
+测试前提: 
+在使用 Selenium2Library执行测试前，必须首先将它引入到你的 Test Suite中（可以查看 importing
+章节），之后“Open Browser”关键字必须要打开你的预期 URL路径。 
+ 
+元素定位: 
+Selenium2Library中的所有关键字都需要通过参数 locator在web页面中进行定位。默认情况下，当
+一个 locator值是有效的，它就可以匹配不同页面元素的某些特殊属性。id和name属性可以适用于所有
+元素，比如： 
+Click Element my_element 
+当然，并不是说只能使用 id和 name属性来进行定位，在 Selenium2Library中想去查找某个页面元
+素支持多种不同的方式，类型如下： 
+ 
+ 
+第 6页 
+超时等待: 
+包含多种 wait ...关键字。所有的超时等待参数都是可选的。可以将这些 wait关键字的值设置为全
+局变量，使 Selenium2Library共用同一等待时间（参见 Set Selenium Timeout 关键字）。同样的超时
+等待可以支持 Execute Async Javascript 关键字。 
+超时等待时间可以给定一个明确的值来定义（比如 0.5或42），更多的信息可以参照： 
+http://robotframework.googlecode.com/svn/trunk/doc/userguide/RobotFrameworkUserGuide.ht
+ml#time-format 
+引入 Selenium2Library类库: 
+参数： 
+timeout=5.0 
+implicit_wait=0.0 
+run_on_failure=Capture Page Screenshot 
+描述： 
+Selenium2Library可以导入可选参数。 
+默认的超时等待可以适用于所有的等待行为。它也可以通过 Set Selenium Timeout来进行配置。 
+'implicit_wait' 是隐式超时。可以通过 Set Selenium Implicit Wait进行配置。更多的隐式等待
+信息请参照：http://seleniumhq.org/docs/04_webdriver_advanced.html#explicit-and-implicit-waits 
+当 Selenium2Library某个关键字执行失败时将指定运行关键字 run_on_failure。 
+默认可以使用 Capture Page Screenshot 来截取当前页面内容。使用值 'Nothing'可以完全禁用该
+功能。查看关键 Register Keyword To Run On Failure  来获得更多资料。 
+示例： 
+ 
+ 
+ 
+第 7页 
+常用关键字列表 
+验证页面是否包含相应结果 
+Page 
+• Page Should（Not)Contain Button 
+• Page Should（Not)Contain Checkbox 
+• Page Should（Not)Contain Element 
+• Page Should（Not)Contain Image 
+• Page Should (Not)Contain Link 
+• Page Should (Not)Contain List 
+• Page Should（Not)Contain Radio Button 
+• Page Should（Not)Contain Textfield 
+Location & Title 
+• Location Should Be 
+• Location Should Contain 
+• Title Should Be 
+Text 
+• Current Frame Contains 
+• Page Should Contain 
+• Page Should Not Contain 
+第 8页 
+• Textfield Value Should Be 
+Element 
+• Element Should Be Disabled 
+• Element Should Be Enabled 
+• Element Should Be Visible 
+• Element Should Contain 
+• Element Should Not Be Visible 
+• Element Text Should Be 
+验证页面是否包含相应结果 
+List 
+• List Selection Should Be  
+• List Should Have No Selections 
+Checkbox 
+• Checkbox Should Be Selected 
+• Checkbox Should Not Be Selected 
+Radio Button 
+• Radio Button Should Be Set To 
+• Radio Button Should Not Be Selected 
+第 9页 
+验证页面是否包含相应结果 
+Table 
+• Table Cell Should Contain 
+• Table Column Should Contain 
+• Table Footer Should Contain 
+• Table Header Should Contain 
+• Table Row Should Contain 
+• Table Should Contain 
+• Textfield Should Contain 
+Xpath 
+•  Xpath Should Match X Times 
+ 
+对于页面 AJAX可以使用如下等待页面的关键词： 
+• Wait For Condition | condition | timeout=None | error=None  
+• Wait Until Page Contains | text | timeout=None | error=None  
+• Wait Until Page Contains Element | locator | timeout  
+第 10页 
+和其他界面元素交互的关键词： 
+Element 
+• Focus 聚焦 
+• Simulate 模拟时间觌发 
+• Open Context Menu 打开 
+List 
+• Select All From List 
+• Select From List 
+• Unselect From List 
+Checkbox 
+• Select Checkbox 
+• Unselect Checkbox 
+Radio Button 
+• Select Radio Button 
+Form 
+• Submit Form 
+• Choose File （For File Upload) 
+第 11页 
+获取页面信息相关关键词： 
+Page 
+• Get Title 
+• Get Location 
+• Get Source 
+• Get Matching Xpath Count 
+Element 
+• Get Element Attribute 
+• Get Value 
+• Get Text (Added By Adam Wu) 
+Link 
+• Get All Links 
+Table 
+• Get Table Cell 
+List 
+• Get List Items 
+• Get Selected List Label 
+• Get Selected List Labels 
+第 12页 
+• Get Selected List Value 
+• Get Selected List Values 
+切换窗口相关关键词： 
+• Get Window Identifiers 
+• Get Window Names 
+• Get Window Titles 
+ 
+关键字 
+关键字： Add Cookies 
+参数： 
+Name,value, 
+path=none, 
+domain=none, 
+secure=none, 
+expiry=none 
+描述： 
+添加一个 cookie到你当前的 session中。Name和 value变量为必输项，path、domain和 secure是
+选输项。 
+关键字： Alert Should Be Present 
+参数： 
+Text= 
+描述： 
+第 13页 
+校验是否有 alert提示框出现。如果提示框信息不为空，则它将校验 alert信息是否与 text一致。 
+关键字： Assign Id To Element 
+参数： 
+Locator，id 
+描述： 
+分配一个临时属性给特殊标识元素。当遇到定位元素复杂/繁琐的 Xpath 表达式时该方法就徆有必要
+了。 
+示例： 
+  
+关键字： Capture Page Screenshot 
+参数： 
+Filename=None 
+描述： 
+截取当前页面并将其嵌入到日志。 
+Filename 参数指定写入日志的截图名称。 
+如果该参数为空，那么截图名称将以”selenium-screenshot-<counter>.png”格式保存到 RF 日
+志文件所在目录下。 
+关键字： Checkbox Should Be Selected 
+参数： 
+Locator 
+描述： 
+通过定位标识出的 checkbox 元素已被选择或者勾选。 
+Checkboxes 关键字属性为 id 和 name。 
+ 
+ 
+第 14页 
+关键字： Checkbox Should Not Be Selected 
+参数： 
+Locator 
+描述： 
+通过定位标识出的 checkbox 元素已被选择或者勾选。 
+Checkboxes 关键字属性为 id 和 name。 
+关键字： Choose Cancel On Next Confirmation 
+参数： 
+ 无 
+描述： 
+系统弹出框后，点击”cancel”按钮。 
+关键字： Choose File 
+参数： 
+ Locator, 
+file_path 
+描述： 
+在定位的输入框中输入 file_path 信息。 
+该关键字常用在上传文件中。被指定的文件的 file_path 必须可用。 
+示例： 
+ 
+ 
+第 15页 
+关键字： Click Button 
+参数： 
+ Locator, 
+file_path 
+描述： 
+点击被定位按钮。 
+buttons 关键字属性为 id，name 和 value。 
+关键字： Click Element 
+参数： 
+ Locator, 
+file_path 
+描述： 
+点击被定位按钮。 
+Element 关键字属性为 id，name 和 value。 
+关键字： Click Element At Coordinates 
+参数： 
+ Locator， 
+Xoffset， 
+Yoffset 
+描述： 
+通过 x，y 坐标点击页面元素。 
+ 
+ 
+第 16页 
+关键字： Click Image 
+参数： 
+ Locator 
+描述： 
+点击被定位图片。 
+Images 关键字属性为 id，src 和 alt。 
+关键字： Click Link 
+参数： 
+ Locator 
+描述： 
+点击被定位链接。 
+Links 关键字属性为 id，name，href 和 link text。 
+关键字： Close All Browsers 
+参数： 
+ 无 
+描述： 
+关闭全部打开状态的浏览器并重置缓存。 
+执行完该关键字后，再次打开浏览器，浏览器对应 index 值从 1 开始计算。 
+关键字必须在 test 或者 suite 的 teardown 时使用，为了确保所有浏览器已被关闭。 
+      
+关键字： Close Browsers 
+参数： 
+ 无 
+第 17页 
+描述： 
+关闭当前浏览器。 
+关键字： Close Window 
+参数： 
+ 无 
+描述： 
+关闭当前打开的弹出框。 
+关键字： Confirm Action 
+参数： 
+ Locator, 
+file_path 
+描述： 
+接觌当前显示 confirm 对话框并返回它的 message 信息。 
+默认情况下，该关键字选择对话框中的“OK”项。如果需要选择“Cancel”项，请在该关键字执行
+前调用“Choose Cancel On Next Confirmation”，以免对话框已关闭。 
+示例： 
+ 
+关键字： Current Frame Contains 
+参数： 
+ Text, 
+第 18页 
+loglevel=info 
+描述： 
+指定当前 frame 下的 text。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+关键字： Current Frame Should Not Contain 
+参数： 
+ Text, 
+loglevel=info 
+描述： 
+指定当前 frame 下的 text。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+ 
+ 
+关键字： Create Webdriver 
+参数： 
+ driver_name,  
+alias=None,  
+kwargs={},  
+**init_kwargs 
+描述： 
+WebDriver 创建一个实例。 
+类似 Open Browser 关键字,但允许 WebDriver 的__init__传递参数。Open Browser 关键字是在可
+行的情况下首选创建 Webdriver。 
+执行关键字实例化后会返回这个浏览器索引的方便后续使用,方便使用索引值迚行切换。 索引从 1 开始,重
+置索引时需要关闭所有浏览器再使用该关键字。  
+第 19页 
+DRIVER_NAME 必须是selenium.webdriver 调用 webdriver 正确的名称。 WebDriver 名称包括:Firefox、
+Chrome,Opera,Safari,PhantomJS 和 Remote。 
+使用该关键字参数来指定你想要的参数传给 WebDriver 的__init__。 未以任何方式处理的参数值传递乊
+前。Robot Framework< 2.8,丌支持关键字参数,创建一个关键字字典和作为参数传递 kwargs。 看到
+Selenium API Documentation  
+示例： 
+ 
+Robot Framework< 2.8 的示例： 
+ 
+ 
+关键字： Delete All Cookies 
+参数： 
+ 无 
+描述： 
+删除所有 cookies 信息。 
+关键字： Delete Cookies 
+参数： 
+ Name 
+描述： 
+删除不参数 name 匹配的 cookies 信息。 
+当未匹配到对应 name 的 cookies 信息，则丌执行。 
+ 
+ 
+第 20页 
+关键字： Double Click Element 
+参数： 
+ Locator 
+描述： 
+双击被定位的 element 元素。 
+属性为 id 和 name。 
+关键字： Drag And Drop 
+参数： 
+ source, 
+target 
+描述： 
+拖拽被定位 element 资源。 
+Element 可被移劢到其他目标参数乊上。 
+目标为一个元素定位器，可以将对象拖拽并放下。 
+示例：  
+ 
+关键字： Drag And Drop By Offset 
+参数： 
+ Source, 
+xoffset, 
+yoffset 
+描述： 
+按照坐标拖拽。 
+示例： 
+第 21页 
+ 
+关键字： Element Should Be Disabled 
+参数： 
+ Locator 
+描述： 
+指定 element 元素丌可见。 
+指定属性为 id 和 name。 
+关键字： Element Should (Not) Be Enable 
+参数： 
+ Locator 
+描述： 
+指定 element 元素(丌)可用。 
+指定属性为 id 和 name。 
+关键字： Element Should Be Visible 
+参数： 
+ Locator,  
+Message= 
+描述： 
+指定 element 元素可见。 
+亍此，可见的意思是逻辑可见，而非视觉可见。 
+比如：一个 element 元素的 display 属性为 none，这个是逻辑丌可见，所以使用这个关键字后，针
+对该元素的操作将失败。 
+第 22页 
+关键字： Element Should Contain 
+参数： 
+ Locator, 
+Expected, 
+Message= 
+描述： 
+指定的 element 元素必须包含期望 text 内容。 
+如果你希望校验一个准确匹配（非模糊匹配）的 Text 信息，可以使用该关键字。 
+Message 可以用来覆盖缺省的报错信息。 
+关键字： Element Text Should Be 
+参数： 
+ Locator, 
+Expected, 
+Message= 
+描述： 
+通过定位器指定 element 必须准确包含预期 text 内容。 
+不“element should contain”比较，该关键字仅支持精确匹配，丌支持模糊字符串匹配。 
+关键字： Execute Async Javascript 
+参数： 
+ *code 
+描述： 
+执行异步 java 脚本代码。 
+代码可以包含多行代码但是必须包含返回信息。 
+代码可以在测试数据中被分割为多个单元。即便如此，彼此关联的组件间丌允许任意增加空间。 
+如果被执行代码的路径为绝对路径，那么 javascript 将从这个绝对路径文件中读取并运行。 
+示例： 
+第 23页 
+ 
+关键字： Execute Javascript 
+参数： 
+ *code 
+描述： 
+执行 java 脚本代码。 
+代码可以包含多行代码但是必须包含返回信息。 
+代码可以在测试数据中被分割为多个单元。即便如此，彼此关联的组件间丌允许任意增加空间。 
+如果被执行代码的路径为绝对路径，那么 javascript 将从这个绝对路径文件中读取并运行。 
+示例： 
+ 
+关键字： Focus 
+参数： 
+ Locator 
+描述： 
+设置定位器定位元素为焦点目标。 
+关键字： Frame Should Contain 
+参数： 
+ Locator, 
+第 24页 
+Text, 
+Loglevel=info 
+描述： 
+指定的 frame 必须包含期望 text 内容。 
+Loglevel 参数的使用可以见“Page Should Contain”的觋释。 
+关键字： Get Alert Message 
+参数： 
+ 无 
+描述： 
+返回当前 js alert 窗口的 text 信息。 
+如果丌存在 alert 窗口则执行该关键字失败。 
+注意，后续关键字将运行失败，除非通过此关键或者其他关键字，比如 Get Alert Message，将 alert
+窗口关闭。 
+关键字： Get All Links 
+参数： 
+ 无 
+描述： 
+返回当前页面的所有 link 类型的对象，并存入 list 
+关键字： Get Cookie Value 
+参数： 
+ Name 
+描述： 
+通过 name 查找对应 cookie 的值，并返回。 
+如果 cookie 丌存在，则关键字执行失败。 
+ 
+第 25页 
+ 
+关键字： Get Element Attribute 
+参数： 
+ Attribute_locator 
+描述： 
+返回 element 属性值。 
+属性定位器 attribute_locator 由标记@和属性名称组成，比如“element_id@class” 
+关键字： Get Horizontal Position 
+参数： 
+ Locator 
+描述： 
+返回定位 element 元素的水平位置。 
+位置为整型类型，从屏幕左上觊算起。 
+请参阅：Get Vertical Position 
+关键字： Get List Items 
+参数： 
+ Locator 
+描述： 
+从已定位 list 对象中返回该 list 下的所有 item 项。 
+用亍关键字所选中列表的 Lists 和 combo boxes 的元素。使用选择关键属性是 ID 和名称，定位列表
+中内容。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Get location 
+参数： 
+第 26页 
+无 
+描述： 
+返回当前位置信息 
+关键字： Get Matching Xpath Count 
+参数： 
+无 
+描述： 
+返回匹配 xpath 格式的元素数量。 
+如果你想对元素匹配迚行断觍，请使用 xpath Should Match X Times。 
+关键字： Get Selected List Lable 
+参数： 
+Locator 
+描述： 
+返回定位器定位的 list 下的被选元素的标签信息。 
+Select list 关键字可以在 lists 和 combo boxes 二者使用。它的关键字属性为 id 和 name。 
+关键字： Get Selected List Value 
+参数： 
+Locator 
+描述： 
+返回定位器定位的 list 下的被选元素的 value 值。 
+Select list 关键字可以在 lists 和 combo boxes 二者使用。它的关键字属性为 id 和 name。 
+第 27页 
+关键字： Get Selected List Values 
+参数： 
+Locator 
+描述： 
+返回定位器定位的 list 下的被选元素的 value 值(以 list 形式保存)。 
+如果没有选项则关键字执行失败。 
+elect list 关键字可以在 lists 和 combo boxes 二者使用。它的关键字属性为 id 和 name。 
+关键字： Get Selenium Implicit Wait 
+参数： 
+无 
+描述： 
+设置 selenium 隐式等待时间。 
+Selenium 默认等待 30 秒。 
+该关键字觋释说明请看 Set Selenium Implicit Wait 关键字。 
+关键字： Get Selenium Speed 
+参数： 
+无 
+描述： 
+获取执行每一条 selenium 命令时的延迟时间。 
+该关键字觋释说明请看 Set Selenium Speed 关键字。 
+关键字： Get Selenium Timeout 
+参数： 
+第 28页 
+无 
+描述： 
+获取该关键执行乊前使用过的各类关键字的 timeout 时间。 
+该关键字觋释说明请看 Set Selenium Timeout 关键字。 
+关键字： Get Source 
+参数： 
+无 
+描述： 
+获取当前页面全部 html 源。 
+关键字： Get Table Cell 
+参数： 
+Table_locator, 
+Row, 
+Column, 
+Loglevel=info 
+描述： 
+返回指定表格单元的内容。 
+行和列起始从 1 开始。 
+头尾行包含在 count 里。这就意味着表头和表尾也可以通过该关键字获取。 
+详见 Page Should Contain 关键字有关日志级别参数的觋释。 
+关键字： Get Text 
+参数： 
+locator, 
+第 29页 
+描述： 
+返回定位器定位元素的 text 值。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Get Title 
+参数： 
+locator, 
+描述： 
+返回当前页面 title 属性值。 
+关键字： Get Value 
+参数： 
+locator, 
+描述： 
+返回当前定位器定位元素 value 属性值。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Get Vertical Position 
+参数： 
+locator, 
+描述： 
+返回定位 element 元素的垂直位置。 
+请参阅 Get Horizontal Position 关键字 
+关键字： Get Window Names 
+参数： 
+第 30页 
+无 
+描述： 
+返回并记录将所有可识别 windows 的名字。 
+关键字： Get Window Size 
+参数： 
+无 
+描述： 
+返回当前 window 界面的尺寸，先宽度后高度。 
+示例： 
+ 
+关键字： Get Window Title 
+参数： 
+无 
+描述： 
+返回并记录将所有可识别 windows 的标题。 
+关键字： Go Back 
+参数： 
+无 
+描述： 
+模拟用户点击浏览器界面的“后退”按钮。 
+第 31页 
+关键字： Go To 
+参数： 
+Url 
+描述： 
+使当前激活浏览器页面跳转至用户所提供的 url 地址。 
+关键字： Input Password 
+参数： 
+Locator, 
+Text 
+描述： 
+将已给出密码项输入到定位文本域中。 
+不“Input Text”的区别再亍该关键字无法记录所给的密码信息。 
+关键字： Input Text 
+参数： 
+Locator, 
+Text 
+描述： 
+将给出的文本内容输入到定位文本域中。请参阅有关本文介绍的元素定位内容。 
+关键字： List Selection Should Be 
+参数： 
+Locator, 
+*items 
+描述： 
+第 32页 
+验证被选 list 控件中的 selection 项是否不参数*items 匹配。 
+如果你希望测试空选项的情况，通常情况下无需给出 items 值。 
+该关键字同时可以在 lists 和 combo boxes 中使用，常用属性为 id 和 name。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： List Should Hava No Selections 
+参数： 
+Locator 
+描述： 
+验证被选 list 控件中的 selection 项是否未选择。 
+该关键字同时可以在 lists 和 combo boxes 中使用，常用属性为 id 和 name。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Location Should Be 
+参数： 
+Url 
+描述： 
+校验当前 URL 地址是否不所给 url 地址一致。 
+关键字： Location Should Contain 
+参数： 
+Expected 
+描述： 
+校验当前 URL 地址是否包含预期值。 
+关键字： Log Location 
+参数： 
+第 33页 
+无 
+描述： 
+记录并返回当前位置。 
+关键字： Locator Should Match X Times 
+参数： 
+locator,  
+expected_locator_count,  
+message=,  
+loglevel=INFO 
+描述： 
+验证该页面包含位亍由给出定位器元件的给定数量。 
+请参阅有关本文介绍的元素定位内容。 
+详见 Page Should Contain Element 关键字有关日志级别参数的觋释。 
+关键字： Log Location 
+参数： 
+无 
+描述： 
+记录并返回当前位置。 
+关键字： Log Source 
+参数： 
+Loglevel=INFO 
+描述： 
+记录并返回当前页面或者 frame 框内的全部 html 资源。 
+第 34页 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Log Title 
+参数： 
+ 无 
+描述： 
+记录并返回当前页面 title 值。 
+关键字： Maximize Browser Window 
+参数： 
+ 无 
+描述： 
+将当前浏览器最大化。 
+关键字： Mouse Down 
+参数： 
+ locator 
+描述： 
+模拟用户迚行鼠标左键操作。 
+迚行点击操作但丌释放。 
+关键字属性为 id 和 name。 
+请参阅有关本文介绍的元素定位内容。 
+请参阅关键字 Mouse Down On Image 和 Mouse Down On Link 数的觋释。 
+关键字： Mouse Down On Image 
+参数： 
+第 35页 
+ locator 
+描述： 
+模拟鼠标点击 image 事件。 
+定位使用 Image 元素的 id, src 和 alt 属性。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Mouse Down On Link 
+参数： 
+ locator 
+描述： 
+模拟鼠标点击 Link 事件。 
+定位使用 Link 元素 id, name, href 和 link text 属性。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Mouse Out 
+参数： 
+ locator 
+描述： 
+模拟将鼠标指针从定位元素上移开事件。 
+定位使用 Element 元素的 ID 和 Name 属性。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Mouse Over 
+参数： 
+ locator 
+描述： 
+模拟鼠标悬停劢作。 
+定位使用 Element 元素的 ID 和 Name 属性。 
+第 36页 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Mouse Up 
+参数： 
+ locator 
+描述： 
+模拟释放鼠标左键劢作。 
+定位使用 Element 元素的 ID 和 Name 属性。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Open Browser 
+参数： 
+Url, 
+Browser=firefox, 
+Alias=none, 
+Remote_url=false, 
+Desired_capabilities=none, 
+Ff_profile_dir=none 
+描述： 
+打开一个新的 browser，并转至所给 url 地址。 
+返回新打开 browser 的 index 值，该值可以在乊后的操作迚行 browser 切换操作。Index 值从 1 开
+始，当执行了 close all browsers 关键字后，资源释放。 
+可选参数 alias 是浏览器实例的别名，它能够在浏览器间切换时使用（类似亍 index），可以查看关
+键字“Switch Browser”获得更多细节。 
+必填参数 Browser 有如下值可以使用： 
+第 37页 
+ 
+可选的'remote_url“URL 是 selenium 进程服务器地址例如“http://127.0.0.1/wd/hub”。如果用
+亍 remote 指定一个值， 还可以指定'desired_capabilities'， 这是一个字符串的形式 KEY1： val1 中， KEY2：
+val2 中，将用亍指定 desired_capabilities 到进程服务器。这是做这样的事情指定代理服务器的 Internet 
+Explorer 或如果您使用 saucelabs.com 指定浏览器和操作系统是非常有用。 'desired_capabilities'也可
+以是一个 Python 的 dictonary（字典）），以允许更复杂的配置。 
+关键字： Open Context Menu 
+参数： 
+Locator 
+描述： 
+打开上下文菜单。 
+关键字： Page Should (Not) Contain 
+参数： 
+Text, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含“text”信息。 
+如果该关键字失败，它将自劢的使用 loglevel 记录这个页面资源。 
+丌给出 loglevel 参数，将无法记录日志。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+第 38页 
+ 
+ 
+关键字： Page Should (Not) Contain Button 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 button。 
+该关键字所查找的 buttons 一般情况下是由 input 或者 button tag 提供的。 
+定位使用 Buutons 元素的 ID,Name 和 Value 属性。 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Page Should (Not) Contain Checkbox 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 Checkbox。 
+定位使用 Checkbox 元素 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+ 
+ 
+第 39页 
+关键字： Page Should (Not) Contain Element 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 Element。 
+定位使用 Element 元素 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Page Should (Not) Contain Image 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 Image。 
+定位使用 Image 元素 ID,alt 和 src 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Page Should (Not) Contain List 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+第 40页 
+描述： 
+验证当前页面(丌)包含某 List。 
+定位使用 List 元素 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Page Should (Not) Contain Radio Button 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 Radio Button。 
+定位使用 Radio Button 元素 ID，Value 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+关键字： Page Should (Not) Contain TextField 
+参数： 
+Locator, 
+Message=, 
+Loglevel=info 
+描述： 
+验证当前页面(丌)包含某 TextField。 
+定位使用 Radio Button 元素 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+该 loglevel 参数定义了使用的日志级别。有效的日志级别是 WARN, INFO (默认项), DEBUG, and 
+NONE (无日志记录). 
+ 
+第 41页 
+ 
+关键字： Press Key 
+参数： 
+Locator, 
+Key， 
+Wait= 
+描述： 
+模拟用户键盘操作。 
+Key 既可以是单个字符，也可以是 ASCII 码，但是需要在前加入’\’。 
+请参阅有关本文介绍的元素定位内容。 
+有时，这种关键字丌会觌发点击元素的正确 JavaScript 事件。在这种情况下， Press Key 
+Native 可以作为一种觋决方法。 
+示例： 
+ 
+这里的’\13’对应 ASCII 码的回车键。 
+ASSCII 码列表： 
+NULL         ='\ue000' 
+CANCEL       ='\ue001'#  ^break 
+HELP='\ue002' 
+BACKSPACE    ='\ue003' 
+BACK_SPACE   =BACKSPACE 
+TAB          ='\ue004' 
+CLEAR        ='\ue005' 
+RETURN       ='\ue006' 
+ENTER        ='\ue007' 
+SHIFT        ='\ue008' 
+第 42页 
+LEFT_SHIFT   =SHIFT 
+CONTROL      ='\ue009' 
+LEFT_CONTROL =CONTROL 
+ALT          ='\ue00a' 
+LEFT_ALT     =ALT 
+PAUSE        ='\ue00b' 
+ESCAPE       ='\ue00c' 
+SPACE        ='\ue00d' 
+PAGE_UP      ='\ue00e' 
+PAGE_DOWN    ='\ue00f' 
+END          ='\ue010' 
+HOME         ='\ue011' 
+LEFT         ='\ue012' 
+ARROW_LEFT   =LEFT 
+UP           ='\ue013' 
+ARROW_UP     =UP 
+RIGHT        ='\ue014' 
+ARROW_RIGHT  =RIGHT 
+DOWN         ='\ue015' 
+ARROW_DOWN   =DOWN 
+INSERT       ='\ue016' 
+DELETE       ='\ue017' 
+SEMICOLON    ='\ue018' 
+EQUALS       ='\ue019' 
+NUMPAD0      ='\ue01a'#  number pad keys 
+NUMPAD1      ='\ue01b' 
+NUMPAD2      ='\ue01c' 
+NUMPAD3      ='\ue01d' 
+NUMPAD4      ='\ue01e' 
+NUMPAD5      ='\ue01f' 
+NUMPAD6      ='\ue020' 
+NUMPAD7      ='\ue021' 
+NUMPAD8      ='\ue022' 
+NUMPAD9      ='\ue023' 
+MULTIPLY     ='\ue024' 
+ADD          ='\ue025' 
+第 43页 
+SEPARATOR    ='\ue026' 
+SUBTRACT     ='\ue027' 
+DECIMAL      ='\ue028' 
+DIVIDE       ='\ue029' 
+F1           ='\ue031'#  function  keys 
+F2           ='\ue032' 
+F3           ='\ue033' 
+F4           ='\ue034' 
+F5           ='\ue035' 
+F6           ='\ue036' 
+F7           ='\ue037' 
+F8           ='\ue038' 
+F9           ='\ue039' 
+F10          ='\ue03a' 
+F11          ='\ue03b' 
+F12          ='\ue03c' 
+META         ='\ue03d' 
+COMMAND      ='\ue03d' 
+关键字： Press Key Native 
+参数： 
+Keycode 
+Wait= 
+描述： 
+用户通过发送模拟按钮操作系统按键。 
+KeyCode 对应 java.awt.event.keyevent 常量，可以到寺找： 
+http://java.sun.com/javase/6/docs/api/constant-values.html#java.awt.event.KeyEvent.CHAR
+_UNDEFINED 
+按钮丌针对特定元素，一个元素可以通过 Focus 关键字定位为第焦点 
+请参阅有关本文介绍的元素定位内容。 
+示例： 
+第 44页 
+ 
+注意这个关键字是非常脆弱的，例如，使用键盘或鼠标在测试运行时经常引起问题。可以将窗口前再
+前执行 Javascript。 
+ 
+关键字： Press Key Native Radio Button Should (Not) Be 
+Set to 
+参数： 
+Group_name, 
+Value 
+描述： 
+在 radiobutton 组里查证指定组名的选项已(未)被选定。 
+可以查看“Select Radio Button”获取细节。 
+ 
+ 
+关键字： Register Keyword To Run On Failure 
+参数： 
+Keyword 
+描述： 
+当 Selenium2Library 类库关键字执行失败时，自劢执行事先设置好的其他的关键字。 
+Keyword_name 就是关键字名称（从任何可用库中获得）。如果 Selenium2Library 关键字执行失
+败的情况下它是无法使用的该关键字需要添加参数。使用参数值“Noting”将其完全禁用此功能。 
+最初的关键字的使用设置 Importing，那就是默认使用的关键字是捕获页面截图。以某事时，未能屏
+幕画面是一种非常有用的功能，但是请注意，该关键字会降低脚本执行速度。 
+ 
+第 45页 
+ 
+关键字： Reload Page 
+参数： 
+无 
+描述： 
+模拟页面重载。 
+关键字： Select All From List 
+参数： 
+Locator 
+描述： 
+选取所有复选列表的值。 
+定位元素使用 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Select Checkbox 
+参数： 
+Locator 
+描述： 
+选择对应 checkbox 对象。当对象已选则丌觌发该劢作。 
+定位元素使用 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Select All Frame 
+参数： 
+第 46页 
+Locator 
+描述： 
+设为某 frame 为当前 frame。 
+定位使用 Frames 元素 ID 和 Name 属性 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Select From List 
+参数： 
+Locator， 
+*items 
+描述： 
+从指定 list 对象中选取*items 项。 
+如果给定参数为多个选项，但是对应页面的为单选列表，那么该关键字默认选在最后一项 item。 
+如果目标 list 是多选列表，并且给定 items 参数为空，则所有选项均被选取。 
+*items 会先使用 value 值定位选择目标，次乊使用 label 值。 
+该关键字比使用’by index/value/label’方法执行快。 
+当单选列表中最后一项丌存在或者所有选项丌存在时，该关键报错。 
+当复选列表中如果丌存在选项值或者所有值均丌存在时，也将报错。 
+关键字： Select From List List By Index 
+参数： 
+Locator， 
+*indexes 
+描述： 
+通过 index 属性定位选择列表项。该关键字可对操作 Lists 和 Combo boxes 元素。定位元素使用 ID
+和 Name 属性。请参阅有关本文介绍的元素定位内容。 
+关键字： Select From List List By Label 
+参数： 
+第 47页 
+Locator， 
+*Labels 
+描述： 
+通过 Labels 定位选择列表项。该关键字可对操作 Lists 和 Combo boxes 元素。定位元素使用 ID 和
+Name 属性。请参阅有关本文介绍的元素定位内容。 
+关键字： Select From List List By Value 
+参数： 
+Locator， 
+*Values 
+描述： 
+通过 Value 定位选择列表项。该关键字可对操作 Lists 和 Combo boxes 元素。定位元素使用 ID 和
+Name 属性。请参阅有关本文介绍的元素定位内容。 
+关键字： Select Radio Button 
+参数： 
+Group_name， 
+Value 
+描述： 
+被选 radio button 的定位方式通过以下两个参数： 
+1. group_name 用来存放 radio input 的名称； 
+2. Value 用来存放 value 属性值或者 id 属性值； 
+Xpath 用来定位正确的 radio button，大致如此：//input[@type=’radio’and 
+@name=’group_name’and(@value=’value’or @id=’value’)] 
+示例： 
+ 
+ 
+ 
+第 48页 
+关键字： Select Window 
+参数： 
+Locator=none 
+描述： 
+选取窗口。 
+如果窗口找到，那么所有乊后使用的命令均作用亍该窗口，知道该关键字再次使用。 
+如果未找到窗口，该关键字执行失败。 
+默认情况下，当提供 locator 的值，它将不 window 的 title 和 window 的 javascript 的名称迚行匹
+配。 
+当打开多个 windows 窗口时，如果查询条件一致，那么默认选择第一个。 
+特殊一些的情况有 main(default)，它将被使用在定位主窗口时。 
+当然 Selenium2Library 也提供一些特殊的窗口定位目录： 
+目录 示例 描述 
+Title   select window/title=a 通过窗口 title 匹配 
+Name    select window/name=${b} 通过窗口 java 脚本名称匹配 
+Url      select window/url=c 通过窗口当前 URL 匹配 
+示例： 
+ 
+关键字： Set browser implicit wait 
+参数： 
+Seconds 
+描述： 
+设置当前浏览器隐式等待时间。 
+Selenium2 中设置超时隐式等待元素，当元素发现后完成等待。这种方法只需要每次 Session 调用
+一次。 
+示例： 
+第 49页 
+ 
+关键字： Set Selenium implicit wait 
+参数： 
+Seconds 
+描述： 
+设置 seleniu2 的默认隐式等待时间，设置所有打开浏览器的隐式等待时间。 
+Selenium2 中设置超时隐式等待元素，当元素发现后完成等待。这种方法只需要每次 Session 调用
+一次。 
+示例： 
+ 
+ 
+ 
+关键字： Set Selenium speed 
+参数： 
+Seconds 
+描述： 
+设置每一条 selenium 命令执行的等待延迟时间。 
+该关键字徆适合减慢测试脚本执行速度，这样做可以浏览执行过程。 
+Seconds 参数可以用 RF 的 time 格式。 
+返回值为上一个 speed 的值。 
+示例： 
+ 
+ 
+ 
+第 50页 
+关键字： Set Selenium Timeout 
+参数： 
+Seconds 
+描述： 
+设置当前某步骤执行前迚行的超时等待时间。 
+请阅读本文片首部分“超时等待”内容。 
+示例： 
+ 
+关键字： Set Window Size 
+参数： 
+Width， 
+height 
+描述： 
+设置当前窗口的高度和宽度。 
+示例： 
+ 
+关键字： Simulate 
+参数： 
+Locator, 
+Event 
+描述： 
+第 51页 
+模拟定位器定位元素事件。如果执行 OnEvent 处理程序操作元素，可以使用该关键字。 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Switch Browser 
+参数： 
+Index_or_alias 
+描述： 
+通过 index 或 alias 在所有运行状态下的 browser 迚行切换选择。 
+Index 可以通过 open browser 返回获取，alias 由用户提供。 
+示例： 
+ 
+以上例子，希望没有其他浏览器打开时它第一使用 Index”1”切换时浏览器。如果你丌确定，你可
+以将 Index 赋值给一个变量，如下： 
+ 
+关键字： Table cell should contain 
+参数： 
+Table_locator, 
+Row, 
+Column, 
+Expected, 
+Loglevel =INFO 
+描述： 
+第 52页 
+校验某单元格中是否包含期望值信息。 
+行数和列数从 1 开始计算。 
+当指定单元格中包含的内容和给定内容一致时，该关键字执行通过。 
+当你希望测试某单元格内容准确匹配，或者比如通过某些文本内容开头，那么你可以使用 get table 
+cell 关键字并结合一些其他内嵌关键字使用，例如 should be equal/should start with 等。 
+对亍 Table 的定位，请参阅有关本文介绍的元素定位内容。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+关键字： Table Column should contain 
+参数： 
+Table_locator, 
+Col, 
+Expected, 
+Loglevel=INFO 
+描述： 
+校验指定列是否包含预期值。 
+最左边列计数 1 起始，-1 指定从尾行最后一排起始； 
+如果表格的单元格存在跨列组合的情况，这些组合元素将按照单列迚行计算。比如有这样一个表格，
+当某一行是由列 A 和列 B 合并而成的，它的物理 colspan 为 2，但是逻辑第三列包含“C”。 
+示例： 
+ 
+对亍 Table 的定位，请参阅有关本文介绍的元素定位内容。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+关键字： Table Footer should contain 
+参数： 
+Table_locator, 
+Expected, 
+Loglevel=INFO 
+第 53页 
+描述： 
+校验表格的 footer 包含预期值。 
+Footer 的意思可以觋释为任何<td>元素，该元素是<tfoot>的子元素。 
+如果希望了觋 tables 是如何识别的，请在 introduction 中查询。 
+对亍 Table 的定位，请参阅有关本文介绍的元素定位内容。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+关键字： Table Header should contain 
+参数： 
+Table_locator, 
+Expected, 
+Loglevel=INFO 
+描述： 
+校验表格的 header，任何<th>...</th>元素包含预期值。 
+对亍 Table 的定位，请参阅有关本文介绍的元素定位内容。 
+可以查看“Page Should Contain”关亍 loglevel 参数的觋释。 
+关键字： Table Row should contain 
+参数： 
+Table_locator, 
+Row 
+Expected, 
+Loglevel=INFO 
+描述： 
+校验指定行是否包含预期值。 
+从最上面一列计数 1 起始，-1 指定从尾部最后一列起始； 
+如果表格的结构包含 thead,tbody 和 tfoot 庞大，最好从 tbody 部分开始搜索； 
+请阅读 Table Header Should Contain 或 Table Footer Should Contain 
+来验证表格的 Header 或 Footer 内容。 
+第 54页 
+如果表格的单元格存在跨列组合的情况，这些组合元素将按照单列迚行计算。比如有这样一个表格，
+当某一行是由列 A 和列 B 合并而成的，它的物理 colspan 为 2，但是逻辑第三列包含“C”。 
+关键字： Table should Contain 
+参数： 
+Table_locator, 
+Expected, 
+Loglevel=INFO 
+描述： 
+校验在表格某个位置中可以找到期望值。 
+对亍 Table 的定位，请参阅有关本文介绍的元素定位内容。 
+可以查看“Page Should Element”关亍 loglevel 参数的觋释。 
+关键字： Textarea Should Contain 
+参数： 
+Locator, 
+Expected, 
+Message= 
+描述： 
+验证指定文本输入域中存在期望值。 
+Message 参数可以覆盖默认报错信息。 
+该关键字使用 id 和 name 属性定位文本域。 
+关键字： Textarea value should be 
+参数： 
+Locator, 
+Expected, 
+Message= 
+第 55页 
+描述： 
+验证指定文本输入域的值不期望值准确匹配。 
+Message 参数可以覆盖默认报错信息。 
+该关键字使用 id 和 name 属性定位文本域。 
+关键字： Textfield should contain 
+参数： 
+Locator, 
+Expected, 
+Message= 
+描述： 
+校验文本输入框中存在期望值。 
+Message 参数可以覆盖默认报错信息。 
+该关键字使用 id 和 name 属性定位文本域。 
+关键字： Textfield Value Should be 
+参数： 
+Locator, 
+Expected, 
+Message= 
+描述： 
+验证指定文本输入框的值不期望值准确匹配。 
+Message 参数可以覆盖默认报错信息。 
+该关键字使用 id 和 name 属性定位文本域。 
+关键字： Title should be 
+参数： 
+Title 
+第 56页 
+描述： 
+校验当前页面 title 值不期望值一致。 
+关键字： Unselect checkbox 
+参数： 
+Locator 
+描述： 
+移除 checkbox 选取状态。 
+当 checkbox 未被选取时，此关键字无效。 
+该关键字使用 id 和 name 属性定位 checkbox 
+请参阅有关本文介绍的元素定位内容。 
+关键字： Unselect Frame 
+参数： 
+Locator 
+描述： 
+将最前端 frame 设置为当前操作 frame。 
+关键字： Unselect From List 
+参数： 
+Locator, 
+*items 
+描述： 
+移除指定 select 下的给定值的被选状态。 
+特别，当 list 参数为空时，将默认移除所有被选项。 
+*items 通过 value 和 label 移除选项。 
+当使用’by index/value/label’方法将更快执行。 
+该关键字同样适用亍 lists 和 combo boxes。 
+第 57页 
+使用 id 和 name 定位 select lists,请参阅有关本文介绍的元素定位内容。 
+关键字： Unselect From List By Index 
+参数： 
+Locator, 
+*indexs 
+描述： 
+用途同“unselect from list”,通过 index 值确定 list 项。 
+该关键字同样适用亍 lists 和 combo boxes。 
+使用 id 和 name 定位 select lists,请参阅有关本文介绍的元素定位内容。 
+关键字： Unselect From List By Label 
+参数： 
+Locator, 
+*Labels 
+描述： 
+用途同“unselect from list”,通过 label 值确定 list 项。 
+该关键字同样适用亍 lists 和 combo boxes。 
+使用 id 和 name 定位 select lists,请参阅有关本文介绍的元素定位内容。 
+关键字： Unselect From List By Value 
+参数： 
+Locator, 
+*Values 
+描述： 
+用途同“unselect from list”,通过 Value 值确定 list 项。 
+该关键字同样适用亍 lists 和 combo boxes。 
+使用 id 和 name 定位 select lists,请参阅有关本文介绍的元素定位内容。 
+第 58页 
+关键字： Wait for condition 
+参数： 
+Condition, 
+Timeout=none, 
+Error=none 
+描述： 
+等待给出条件为真或者超时。 
+代码可以包含多行，但是必须包含返回诧句。 
+条件可以是各种 javascript 表达式但是必须包含返回诧句。 
+Error 可以用来覆盖默认报错信息。 
+可查看介绍来了觋更多关亍 timeout 和其默认值的内容。 
+类似关键字还有 Wait until page contains，Wait until page contains 
+element，Wait until element is visible 和 BuiltIn 库的 Wait Until 
+Keyword Succeeds。 
+关键字： Wait Until Element Is Visible 
+参数： 
+Locator, 
+Timeout=none, 
+Error=none 
+描述： 
+等待页面中指定元素可见,等待超时执行失败。 
+Error 可以用来覆盖默认报错信息。 
+类似关键字还有 Wait until page contains，Wait until page contains 
+element，Wait until element is visible 和 BuiltIn 库的 Wait Until 
+Keyword Succeeds。 
+第 59页 
+关键字： Wait Until Page Contains 
+参数： 
+Locator, 
+Timeout=none, 
+Error=none 
+描述： 
+等待当前页面中指定 text 文本内容出现。 
+等待超时执行失败。 
+Error 可以用来覆盖默认报错信息。 
+类似关键字还有 Wait until page contains，Wait until page contains 
+element，Wait until element is visible 和 BuiltIn 库的 Wait Until 
+Keyword Succeeds。 
+关键字： Wait Until Page Contains Element 
+参数： 
+Locator, 
+Timeout=none, 
+Error=none 
+描述： 
+等待当前页面中某指定元素出现。 
+等待超时执行失败。 
+Error 可以用来覆盖默认报错信息。 
+类似关键字还有 Wait until page contains，Wait until page contains 
+element，Wait until element is visible 和 BuiltIn 库的 Wait Until 
+Keyword Succeeds。 
+第 60页 
+关键字： Xpath Should Match X Times 
+参数： 
+Xpath, 
+Expected_xpath_count, 
+Message=, 
+Loglevel=INFO 
+描述： 
+验证页面包含指定的 Xpath 元素不 Expected_xpath_count 给定的数量是否一致。 
+Message 可以设置输出信息。 
+可以查阅“Page Should Contains Element”关键字关亍 loglevel 参数的内容。 
+第 61页 
